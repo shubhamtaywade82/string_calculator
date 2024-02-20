@@ -7,6 +7,9 @@ class StringCalculator
   # @param input_string [String] The string containing numbers to be added.
   # @return [Integer] The sum of the numbers in the string.
   def add(input_string)
-    0 if input_string.empty?
+    return 0 if input_string.empty?
+
+    numbers = input_string.split(',').map(&:to_i)
+    numbers.sum
   end
 end
