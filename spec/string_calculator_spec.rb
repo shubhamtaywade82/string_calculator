@@ -3,12 +3,13 @@
 require_relative '../string_calculator'
 
 RSpec.describe StringCalculator do
-  let(:name) { 'TestUser' }
-  let(:user) { StringCalculator.new('TestUser') }
+  describe '#add' do
+    let(:calculator) { StringCalculator.new }
 
-  context 'greeting method is called with a name  ' do
-    it "greets someone with  'Hello there' and their name" do
-      expect(user.greet).to eq "Hello there, #{name}"
+    context 'when input string is empty' do
+      it 'returns 0' do
+        expect(calculator.add('')).to eq(0)
+      end
     end
   end
 end
