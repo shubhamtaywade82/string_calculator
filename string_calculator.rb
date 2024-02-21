@@ -7,9 +7,17 @@ class StringCalculator
   # @param input_string [String] The string containing numbers to be added.
   # @return [Integer] The sum of the numbers in the string.
   def add(input_string)
-    return 0 if input_string.empty?
+    return 0 if input_string.nil? || input_string.empty?
 
-    numbers = input_string.split(/[\n,]/).map(&:to_i)
+    delimiter = ','
+    numbers = input_string
+
+    if input_string.start_with?('//')
+      delimiter = input_string[2]
+      numbers = input_string[4..]
+    end
+
+    numbers = numbers.split(/[\n#{delimiter}]/).map(&:to_i)
     numbers.sum
   end
 end
